@@ -26,8 +26,15 @@ public class PessoaServletController extends HttpServlet {
 		String endereco = request.getParameter("endereco");
 		String telefone = request.getParameter("telefone");
 		
-		PessoaController pessoaController = new PessoaController(); 
-		pessoaController.setPessoa(new Pessoa(nome, endereco, telefone));
+		PessoaController pessoaController = new PessoaController();
+		
+		// pessoaController.setPessoa(new Pessoa(nome, endereco, telefone));
+		
+		// teste -------
+		Pessoa pessoa = new Pessoa(nome, endereco, telefone); 
+		// pessoa.setId(3);
+		pessoaController.setPessoa(pessoa);
+		// ------------
 		
 		pessoaController.adicionarPessoa();
 		

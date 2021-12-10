@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Pessoa implements Serializable {
@@ -14,9 +15,10 @@ public class Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name="seq",sequenceName="oracle_seq")        
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")    
 	private int Id;
-
+	
 	@Column
 	private String nome;
 	
